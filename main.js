@@ -37,7 +37,9 @@ const {id, email} = oggetto;
 /*
 ### Esercizio 3: Distrutturazione di Base degli Oggetti
 Utilizza la distrutturazione degli oggetti per estrarre il `titolo` e l'`anno` dal seguente oggetto e registrarli nella console.
+*/
 
+/*
 const film = {
   titolo: "Inception",
   regista: "Christopher Nolan",
@@ -100,54 +102,80 @@ console.log(nome, eta);
 /*
 ### Esercizio 6: Distrutturazione dei Parametri delle Funzioni
 Scrivi una funzione `presentati` che prende un oggetto con le proprietà `nome` e `occupazione` e registra un messaggio nella console.
+*/
 
+/*
 const persona = {
-    nome: "Jane",
-    occupazione: "sviluppatrice"
+  nome: "Jane",
+  occupazione: "sviluppatrice",
 };
 
+const presentati = ({nome, occupazione}) => {
+  const messaggio = `Ciao, mi chiamo ${tizio.nome} e faccio lo/la ${tizio.occupazione}`;
+  console.log(messaggio);
+};
 
+presentati(persona);
+*/
+
+/*
 Esercizi BONUS:
 ### BONUS 1: Analisi di JSON Complesso e Distrutturazione Avanzata
-Hai ricevuto una risposta JSON da un database contenente informazioni su libri e loro autori. Analizza il JSON e usa la distrutturazione degli oggetti per estrarre e registrare le seguenti informazioni per ogni libro: titolo, nome e cognome dell'autore, e il numero di pagine se il libro ne ha più di 300.
+Hai ricevuto una risposta JSON da un database contenente informazioni su libri e loro autori.
+Analizza il JSON e usa la distrutturazione degli oggetti per estrarre e registrare le seguenti informazioni per ogni libro: 
+titolo, nome e cognome dell'autore, e il numero di pagine se il libro ne ha più di 300.
+*/
 
-[
+const databaseJson = [
   {
-      "title": "Il Grande Gatsby",
-      "author": {
-          "firstName": "F. Scott",
-          "lastName": "Fitzgerald"
-      },
-      "details": {
-          "pages": 180,
-          "language": "Inglese"
-      }
+    title: "Il Grande Gatsby",
+    author: {
+      firstName: "F. Scott",
+      lastName: "Fitzgerald",
+    },
+    details: {
+      pages: 180,
+      language: "Inglese",
+    },
   },
   {
-      "title": "Guerra e Pace",
-      "author": {
-          "firstName": "Lev",
-          "lastName": "Tolstoj"
-      },
-      "details": {
-          "pages": 1225,
-          "language": "Russo"
-      }
+    title: "Guerra e Pace",
+    author: {
+      firstName: "Lev",
+      lastName: "Tolstoj",
+    },
+    details: {
+      pages: 1225,
+      language: "Russo",
+    },
   },
   {
-      "title": "1984",
-      "author": {
-          "firstName": "George",
-          "lastName": "Orwell"
-      },
-      "details": {
-          "pages": 328,
-          "language": "Inglese"
-      }
-  }
-]
+    title: "1984",
+    author: {
+      firstName: "George",
+      lastName: "Orwell",
+    },
+    details: {
+      pages: 328,
+      language: "Inglese",
+    },
+  },
+];
 
+for (let i = 0; i < databaseJson.length; i++) {
+  const libro = databaseJson[i];
+  const { title, author, details } = libro;
+  const { firstName, lastName } = author;
+  const { pages } = details;
 
+  const message = `${title}
+  ${firstName}, ${lastName}
+  ${pages > 300 ? pages : ""}`;
+
+  console.log(message);
+}
+
+/*
 ### BONUS 2: Gestione dei Dati Mancanti con la Distrutturazione
 Dato il JSON degli utenti, scrivi una funzione che distruttura ogni oggetto utente per estrarre il nome, l'email e l'indirizzo dell'utente. Se l'indirizzo non è fornito, la funzione dovrebbe assegnare un valore predefinito di "Indirizzo non fornito". Registra le informazioni estratte per ogni utente.
 
