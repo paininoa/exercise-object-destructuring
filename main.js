@@ -184,6 +184,7 @@ l'email e l'indirizzo dell'utente. Se l'indirizzo non è fornito, la funzione do
 predefinito di "Indirizzo non fornito". Registra le informazioni estratte per ogni utente.
 */
 
+/*
 const databaseJson = [
   {
     name: "Alice",
@@ -215,11 +216,17 @@ const analizzaDatabase = (database) => {
 };
 
 analizzaDatabase(databaseJson);
+*/
 
 /*
 ### BONUS 3: Distrutturazione ed Elaborazione dei Dati JSON
-Hai ricevuto una stringa JSON contenente un array di prodotti con i loro prezzi e quantità. Scrivi una funzione che analizza il JSON e calcola il valore totale di ogni prodotto (prezzo moltiplicato per la quantità). Utilizza la distrutturazione degli oggetti per estrarre le proprietà necessarie. Quindi, registra il nome del prodotto e il suo valore totale.
-[
+Hai ricevuto una stringa JSON contenente un array di prodotti con i loro prezzi e quantità. 
+Scrivi una funzione che analizza il JSON e calcola il valore totale di ogni prodotto 
+(prezzo moltiplicato per la quantità). Utilizza la distrutturazione degli oggetti per estrarre le proprietà necessarie. 
+Quindi, registra il nome del prodotto e il suo valore totale.
+*/
+
+const stringaJson = `[
     {
         "product": "Laptop",
         "price": 1200,
@@ -235,5 +242,21 @@ Hai ricevuto una stringa JSON contenente un array di prodotti con i loro prezzi 
         "price": 750,
         "quantity": 3
     }
-]
-*/
+]`;
+
+const database = JSON.parse(stringaJson);
+
+const analizzaJson = (data) => {
+  for (let i = 0; i < data.length; i++) {
+    const prodotto = data[i];
+    const { product, price, quantity } = prodotto;
+
+    const valoreTotale = price * quantity;
+
+    const message = `${product}: ${valoreTotale}`;
+
+    console.log(message);
+  }
+};
+
+analizzaJson(database);
