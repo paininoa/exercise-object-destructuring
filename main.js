@@ -126,6 +126,7 @@ Analizza il JSON e usa la distrutturazione degli oggetti per estrarre e registra
 titolo, nome e cognome dell'autore, e il numero di pagine se il libro ne ha più di 300.
 */
 
+/*
 const databaseJson = [
   {
     title: "Il Grande Gatsby",
@@ -174,29 +175,48 @@ for (let i = 0; i < databaseJson.length; i++) {
 
   console.log(message);
 }
+*/
 
 /*
 ### BONUS 2: Gestione dei Dati Mancanti con la Distrutturazione
-Dato il JSON degli utenti, scrivi una funzione che distruttura ogni oggetto utente per estrarre il nome, l'email e l'indirizzo dell'utente. Se l'indirizzo non è fornito, la funzione dovrebbe assegnare un valore predefinito di "Indirizzo non fornito". Registra le informazioni estratte per ogni utente.
+Dato il JSON degli utenti, scrivi una funzione che distruttura ogni oggetto utente per estrarre il nome, 
+l'email e l'indirizzo dell'utente. Se l'indirizzo non è fornito, la funzione dovrebbe assegnare un valore
+predefinito di "Indirizzo non fornito". Registra le informazioni estratte per ogni utente.
+*/
 
-[
-    {
-        "name": "Alice",
-        "email": "alice@example.com",
-        "address": "123 Via Acero, Meraviglia"
-    },
-    {
-        "name": "Bob",
-        "email": "bob@example.com"
-    },
-    {
-        "name": "Charlie",
-        "email": "charlie@example.com",
-        "address": "456 Via Olmo, Sognilandia"
-    }
-]
+const databaseJson = [
+  {
+    name: "Alice",
+    email: "alice@example.com",
+    address: "123 Via Acero, Meraviglia",
+  },
+  {
+    name: "Bob",
+    email: "bob@example.com",
+  },
+  {
+    name: "Charlie",
+    email: "charlie@example.com",
+    address: "456 Via Olmo, Sognilandia",
+  },
+];
 
+const analizzaDatabase = (database) => {
+  let message = "";
 
+  for (let i = 0; i < database.length; i++) {
+    const utente = database[i];
+    const { name, email, address = "Indirizzo non fornito" } = utente;
+    const message = `${name}
+    ${email}
+    ${address}`;
+    console.log(message);
+  }
+};
+
+analizzaDatabase(databaseJson);
+
+/*
 ### BONUS 3: Distrutturazione ed Elaborazione dei Dati JSON
 Hai ricevuto una stringa JSON contenente un array di prodotti con i loro prezzi e quantità. Scrivi una funzione che analizza il JSON e calcola il valore totale di ogni prodotto (prezzo moltiplicato per la quantità). Utilizza la distrutturazione degli oggetti per estrarre le proprietà necessarie. Quindi, registra il nome del prodotto e il suo valore totale.
 [
