@@ -79,7 +79,7 @@ const utente = {
 
 const { indirizzo } = utente;
 const { via, citta } = indirizzo;
-console.log(civico, citta);
+console.log(via, citta);
 
 // Soluzione Extra
 // const {indirizzo:{via, citta}} = utente;
@@ -87,7 +87,8 @@ console.log(civico, citta);
 
 /*
 ### Esercizio 5: Valori Predefiniti nella Distrutturazione
-Utilizza la distrutturazione degli oggetti per estrarre il `nome` e l'`eta` dall'oggetto `persona`. Se l'`eta` non è fornita, dovrebbe avere un valore predefinito di `30`.
+Utilizza la distrutturazione degli oggetti per estrarre il `nome` e l'`eta` dall'oggetto `persona`. 
+Se l'`eta` non è fornita, dovrebbe avere un valore predefinito di `30`.
 */
 
 /*
@@ -226,6 +227,7 @@ Scrivi una funzione che analizza il JSON e calcola il valore totale di ogni prod
 Quindi, registra il nome del prodotto e il suo valore totale.
 */
 
+/*
 const stringaJson = `[
     {
         "product": "Laptop",
@@ -260,3 +262,4 @@ const analizzaJson = (data) => {
 };
 
 analizzaJson(database);
+*/
